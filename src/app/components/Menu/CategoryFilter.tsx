@@ -20,7 +20,7 @@ const CategoryFilter: React.FC = () => {
           <li key={index}>
             <Link href={`?category=${option.link}`}>
               <button
-                className="bg-white font-medium text-neutral hover:bg-success shadow-sm  px-4 py-2 rounded-lg"
+                className="bg-white font-medium text-neutral hover:bg-success shadow-sm  px-4 py-2 rounded-lg whitespace-nowrap"
               >
                 {option.label}
               </button>

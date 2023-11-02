@@ -7,7 +7,9 @@ export default function Home() {
         <section className='flex flex-col gap-3'>
           <h1 className='font-medium text-2xl'>{'Categories'}</h1>
           <span className='text-neutral'>{'Select categories you like to eat from.'}</span>
-          <CategoryFilter />
+          <div className='stats bg-transparent'>
+            <CategoryFilter />
+          </div>
         </section>
         <ProductContainer />
       </div>
