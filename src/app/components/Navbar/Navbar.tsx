@@ -18,7 +18,7 @@ const Navbar: React.FC<Navbar> = ({
     <>
       <div className={cn('flex flex-row w-full', className)} {...props}>
         <div className='flex flex-col w-full lg:w-[80%] bg-slate-100'>
-          <header className='py-4 mx-8'>
+          <header className='py-4 mx-8 border-b'>
             <nav className='flex flex-row justify-between mx-auto'>
               <h1 className='font-medium text-2xl text-success'>Cafetaria</h1>
 
