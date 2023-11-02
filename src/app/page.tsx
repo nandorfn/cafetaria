@@ -11,7 +11,9 @@ export default function Home() {
             <CategoryFilter />
           </div>
         </section>
-        <ProductContainer />
+        <div className=" h-screen pb-52 overflow-y-scroll" >
+          <ProductContainer />
+        </div>
       </div>
     </>
   )
