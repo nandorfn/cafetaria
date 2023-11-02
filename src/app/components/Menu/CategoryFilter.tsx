@@ -7,6 +7,7 @@ type Category = {
 
 const CategoryFilter: React.FC = () => {
   const category: Category[] = [
+    { label: 'All Categories', link: '' },
     { label: 'Main Course', link: 'main' },
     { label: 'Appetizer', link: 'appetizer' },
     { label: 'Drinks', link: 'drinks' },

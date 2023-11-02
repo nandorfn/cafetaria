@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { HTMLAttributes } from 'react';
 import Sidebar from '@/app/components/Sidebar/Sidebar';
 import { cn } from '@/app/utils/utils';
+import Link from 'next/link';
 
 interface Navbar extends HTMLAttributes<HTMLElement> {
   children: React.ReactNode;
@@ -20,7 +21,9 @@ const Navbar: React.FC<Navbar> = ({
         <div className='flex flex-col w-full lg:w-[80%] bg-slate-100'>
           <header className='py-4 mx-8 border-b'>
             <nav className='flex flex-row justify-between mx-auto'>
-              <h1 className='font-medium text-2xl text-success'>Cafetaria</h1>
+              <Link href={'/'}>
+                <h1 className='font-medium text-2xl text-success'>Cafetaria</h1>
+              </Link>
 
               <button className='bg-warning hover:bg-yellow-300 md:hidden rounded-lg p-2'>
                 <Image
