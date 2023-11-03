@@ -46,3 +46,21 @@ body {
   gap: 1rem;
   border-radius: 0.75rem;
 }
+
+::-webkit-scrollbar {
+  width: 0px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F2F2F2;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #BDBDBD;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6E6E6E;
+}
