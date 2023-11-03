@@ -55,7 +55,7 @@ const LoginForm: React.FC = () => {
             }
             <Flex>
               <button
-                className="btn w-full text-white hover:opacity-70 border-0"
+                className="btn btn-neutral w-full text-white hover:opacity-70 border-0"
                 type="submit"
                 disabled={isSubmitting}
               >

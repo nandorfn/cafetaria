@@ -9,8 +9,7 @@ export const POST = async (req: Request) => {
   const verifiedToken = token && (await verifyAuth(token));
   
   if (!verifiedToken) {
-    return NextResponse.json({errors: 'Unauthorized'}, { status: 401})
-  }
+    return NextResponse.json({ errors: 'Unauthorized: PLease Login add cart!' }, { status: 401 })  }
   
   const existingCart = await prisma.cart.findFirst({
     where: {
@@ -67,6 +66,5 @@ export const GET = async (req: Request) => {
     }
   })
   
-  console.log(carts);
   return NextResponse.json(carts, { status: 200})
 }

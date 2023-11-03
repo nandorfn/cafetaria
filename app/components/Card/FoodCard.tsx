@@ -11,8 +11,9 @@ type Props = {
 }
 
 const FoodCard = ({ data }: Props) => {
-  const { price } = data;
+  const [loading, setLoading] = useState(false);
   const [product, setProduct] = useState([data]);
+  const { price } = data;
   const dispatch = useDispatch();
 
 
@@ -21,18 +22,30 @@ const FoodCard = ({ data }: Props) => {
     return selectedItem
   }
 
-  const addProductToCart = (e: React.SyntheticEvent) => {
-    const { id } = e.target as HTMLButtonElement;
+  const addProductToCart = (id: string) => {
     const newCart = selectedCart(id);
     postCartData(newCart)
   }
 
   const postCartData = async (data: any) => {
-    axios.post('/api/carts', data.id)
-    .then((res) => {
-      dispatch(addCart(data))
+    setLoading(true);
+    axios.post('/api/carts', {
+      productId: data.productId
     })
+    .then((res) => {
+      if (res.status === 200 || res.status === 201) {
+        dispatch(addCart(data))
+      } else {
+        throw new Error(res.data.errors)
+      }
+    })
+    .catch((err) => {
+      const error = err.response.data.errors;
+      alert(error);
+    })
+    .finally(() => setLoading(false));
   }
+  
   return (
     <>
       <div className="card card-compact w-fit h-full bg-white shadow-xl">
@@ -54,9 +67,11 @@ const FoodCard = ({ data }: Props) => {
           <p>{data.description}</p>
           <div className="card-actions justify-end">
             <button
-              onClick={addProductToCart}
+              onClick={() => addProductToCart(data.productId)}
               id={data.productId}
-              className="btn btn-warning btn-sm text-white hover:opacity-70">Add to Cart</button>
+              disabled={loading}
+              className="btn btn-warning btn-sm text-white hover:opacity-70 disabled:opacity-70">Add to Cart
+            </button>
           </div>
         </div>
       </div>

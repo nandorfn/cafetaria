@@ -13,10 +13,17 @@ export async function middleware(req: NextRequest) {
       return NextResponse.redirect(new URL('/', req.url));
     }
   }
+  
+  if (verifiedToken) {
+    if (req.nextUrl.pathname.startsWith('/login')) {
+      return NextResponse.redirect(new URL('/', req.url));
+    }
+  }
 }
 
 export const config = {
   matcher: [
     '/admin/:path*',
+    '/login',
   ]
 }
