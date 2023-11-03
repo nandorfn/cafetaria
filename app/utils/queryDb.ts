@@ -10,3 +10,7 @@ export const getAllFoods = async (filters: any) => {
   
   return foods;
 }
+
+export const getAllProducts = async () => {
+  return await prisma.product.findMany()
+}

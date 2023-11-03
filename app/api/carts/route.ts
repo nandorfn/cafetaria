@@ -66,5 +66,9 @@ export const GET = async (req: Request) => {
     }
   })
   
+  console.log(carts)
+  const products = await prisma.product.findMany()
+  
+  
   return NextResponse.json(carts, { status: 200})
 }

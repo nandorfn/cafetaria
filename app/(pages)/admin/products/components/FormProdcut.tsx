@@ -5,9 +5,15 @@ import { Select } from '@/app/components/Form/Select';
 import { Textarea } from '@/app/components/Form/Textarea';
 import useProductForm from "@/app/hooks/useProductForm";
 import { categoryFood } from '@/app/utils/objectData';
+import { Dispatch, SetStateAction } from "react";
 import { Controller } from 'react-hook-form';
 
-const FormProdcut: React.FC = () => {
+type Props = {
+  handleInput: (e: React.SyntheticEvent) => void;
+  search: string;
+}
+
+const FormProdcut = ({ handleInput, search }: Props) => {
   const {
     register,
     handleSubmit,
@@ -18,7 +24,7 @@ const FormProdcut: React.FC = () => {
     modal,
     setModal
   } = useProductForm();
-  
+
   return (
     <>
       <Flex className="gap-3 mt-3">
@@ -26,6 +32,8 @@ const FormProdcut: React.FC = () => {
           className="input input-bordered bg-white"
           type="search"
           name="search"
+          value={search}
+          onChange={(e: React.SyntheticEvent) => handleInput(e)}
           placeholder="Search by product name.."
         />
         <button
@@ -105,7 +113,7 @@ const FormProdcut: React.FC = () => {
                   {'Stock'}
                   <input
                     {...register("stock")}
-                    type="text"
+                    type="number"
                     className="input input-bordered w-full font-normal mt-3 mb-2"
                   />
                   {errors.stock && <ErrorMsg error={errors.stock.message} />}
@@ -114,7 +122,7 @@ const FormProdcut: React.FC = () => {
                   {'Price'}
                   <input
                     {...register("price")}
-                    type="text"
+                    type="number"
                     className="input input-bordered w-full font-normal mt-3 mb-2"
                   />
                   {errors.price && <ErrorMsg error={errors.price.message} />}

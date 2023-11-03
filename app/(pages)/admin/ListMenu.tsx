@@ -1,11 +1,10 @@
-import Avatar from "@/app/components/Avatar/Avatar";
+import LogoutBtn from "@/app/components/Button/LogoutBtn";
 import { checkUserLogin } from "@/app/utils/auth";
 import Link from "next/link";
 
 
 const ListMenu = async () => {
   const user = await checkUserLogin();
-
   const menus = [
     { label: 'Dashboard', Link: '/admin/' },
     { label: 'Products', Link: '/admin/products' },
@@ -26,9 +25,7 @@ const ListMenu = async () => {
 
       {user &&
         <li className="absolute bottom-8 flex w-full">
-          <button className="btn-wide  justify-center bg-white border-0 text-black hover:bg-white hover:border ">
-            Logout
-          </button>
+         <LogoutBtn />
         </li>
       }
     </ul>

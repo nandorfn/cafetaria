@@ -82,7 +82,7 @@ const Page = () => {
 
             <Flex align={'between'}>
               <button
-                className="w-full btn text-white hover:opacity-70"
+                className="w-full btn bg-neutral text-white hover:opacity-70"
                 type="submit"
                 disabled={isSubmitting}
               >
