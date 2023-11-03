@@ -2376,16 +2376,16 @@ export namespace Prisma {
   export type ProductAvgAggregateOutputType = {
     id: number | null
     totalSold: number | null
-    Stock: number | null
-    Price: number | null
+    stock: number | null
+    price: number | null
     viewsCount: number | null
   }
 
   export type ProductSumAggregateOutputType = {
     id: number | null
     totalSold: number | null
-    Stock: number | null
-    Price: number | null
+    stock: number | null
+    price: number | null
     viewsCount: number | null
   }
 
@@ -2394,11 +2394,11 @@ export namespace Prisma {
     productId: string | null
     name: string | null
     category: string | null
-    ImgLink: string | null
+    imgLink: string | null
     totalSold: number | null
-    Stock: number | null
-    Description: string | null
-    Price: number | null
+    stock: number | null
+    description: string | null
+    price: number | null
     viewsCount: number | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -2409,11 +2409,11 @@ export namespace Prisma {
     productId: string | null
     name: string | null
     category: string | null
-    ImgLink: string | null
+    imgLink: string | null
     totalSold: number | null
-    Stock: number | null
-    Description: string | null
-    Price: number | null
+    stock: number | null
+    description: string | null
+    price: number | null
     viewsCount: number | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -2424,11 +2424,11 @@ export namespace Prisma {
     productId: number
     name: number
     category: number
-    ImgLink: number
+    imgLink: number
     totalSold: number
-    Stock: number
-    Description: number
-    Price: number
+    stock: number
+    description: number
+    price: number
     viewsCount: number
     createdAt: number
     updatedAt: number
@@ -2439,16 +2439,16 @@ export namespace Prisma {
   export type ProductAvgAggregateInputType = {
     id?: true
     totalSold?: true
-    Stock?: true
-    Price?: true
+    stock?: true
+    price?: true
     viewsCount?: true
   }
 
   export type ProductSumAggregateInputType = {
     id?: true
     totalSold?: true
-    Stock?: true
-    Price?: true
+    stock?: true
+    price?: true
     viewsCount?: true
   }
 
@@ -2457,11 +2457,11 @@ export namespace Prisma {
     productId?: true
     name?: true
     category?: true
-    ImgLink?: true
+    imgLink?: true
     totalSold?: true
-    Stock?: true
-    Description?: true
-    Price?: true
+    stock?: true
+    description?: true
+    price?: true
     viewsCount?: true
     createdAt?: true
     updatedAt?: true
@@ -2472,11 +2472,11 @@ export namespace Prisma {
     productId?: true
     name?: true
     category?: true
-    ImgLink?: true
+    imgLink?: true
     totalSold?: true
-    Stock?: true
-    Description?: true
-    Price?: true
+    stock?: true
+    description?: true
+    price?: true
     viewsCount?: true
     createdAt?: true
     updatedAt?: true
@@ -2487,11 +2487,11 @@ export namespace Prisma {
     productId?: true
     name?: true
     category?: true
-    ImgLink?: true
+    imgLink?: true
     totalSold?: true
-    Stock?: true
-    Description?: true
-    Price?: true
+    stock?: true
+    description?: true
+    price?: true
     viewsCount?: true
     createdAt?: true
     updatedAt?: true
@@ -2589,11 +2589,11 @@ export namespace Prisma {
     productId: string
     name: string
     category: string
-    ImgLink: string
+    imgLink: string
     totalSold: number
-    Stock: number
-    Description: string
-    Price: number
+    stock: number
+    description: string
+    price: number
     viewsCount: number
     createdAt: Date
     updatedAt: Date
@@ -2623,11 +2623,11 @@ export namespace Prisma {
     productId?: boolean
     name?: boolean
     category?: boolean
-    ImgLink?: boolean
+    imgLink?: boolean
     totalSold?: boolean
-    Stock?: boolean
-    Description?: boolean
-    Price?: boolean
+    stock?: boolean
+    description?: boolean
+    price?: boolean
     viewsCount?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -2641,11 +2641,11 @@ export namespace Prisma {
     productId?: boolean
     name?: boolean
     category?: boolean
-    ImgLink?: boolean
+    imgLink?: boolean
     totalSold?: boolean
-    Stock?: boolean
-    Description?: boolean
-    Price?: boolean
+    stock?: boolean
+    description?: boolean
+    price?: boolean
     viewsCount?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -2669,11 +2669,11 @@ export namespace Prisma {
       productId: string
       name: string
       category: string
-      ImgLink: string
+      imgLink: string
       totalSold: number
-      Stock: number
-      Description: string
-      Price: number
+      stock: number
+      description: string
+      price: number
       viewsCount: number
       createdAt: Date
       updatedAt: Date
@@ -3078,11 +3078,11 @@ export namespace Prisma {
     readonly productId: FieldRef<"Product", 'String'>
     readonly name: FieldRef<"Product", 'String'>
     readonly category: FieldRef<"Product", 'String'>
-    readonly ImgLink: FieldRef<"Product", 'String'>
+    readonly imgLink: FieldRef<"Product", 'String'>
     readonly totalSold: FieldRef<"Product", 'Int'>
-    readonly Stock: FieldRef<"Product", 'Int'>
-    readonly Description: FieldRef<"Product", 'String'>
-    readonly Price: FieldRef<"Product", 'Float'>
+    readonly stock: FieldRef<"Product", 'Int'>
+    readonly description: FieldRef<"Product", 'String'>
+    readonly price: FieldRef<"Product", 'Float'>
     readonly viewsCount: FieldRef<"Product", 'Int'>
     readonly createdAt: FieldRef<"Product", 'DateTime'>
     readonly updatedAt: FieldRef<"Product", 'DateTime'>
@@ -6436,11 +6436,11 @@ export namespace Prisma {
     productId: 'productId',
     name: 'name',
     category: 'category',
-    ImgLink: 'ImgLink',
+    imgLink: 'imgLink',
     totalSold: 'totalSold',
-    Stock: 'Stock',
-    Description: 'Description',
-    Price: 'Price',
+    stock: 'stock',
+    description: 'description',
+    price: 'price',
     viewsCount: 'viewsCount',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
@@ -6659,11 +6659,11 @@ export namespace Prisma {
     productId?: StringFilter<"Product"> | string
     name?: StringFilter<"Product"> | string
     category?: StringFilter<"Product"> | string
-    ImgLink?: StringFilter<"Product"> | string
+    imgLink?: StringFilter<"Product"> | string
     totalSold?: IntFilter<"Product"> | number
-    Stock?: IntFilter<"Product"> | number
-    Description?: StringFilter<"Product"> | string
-    Price?: FloatFilter<"Product"> | number
+    stock?: IntFilter<"Product"> | number
+    description?: StringFilter<"Product"> | string
+    price?: FloatFilter<"Product"> | number
     viewsCount?: IntFilter<"Product"> | number
     createdAt?: DateTimeFilter<"Product"> | Date | string
     updatedAt?: DateTimeFilter<"Product"> | Date | string
@@ -6676,11 +6676,11 @@ export namespace Prisma {
     productId?: SortOrder
     name?: SortOrder
     category?: SortOrder
-    ImgLink?: SortOrder
+    imgLink?: SortOrder
     totalSold?: SortOrder
-    Stock?: SortOrder
-    Description?: SortOrder
-    Price?: SortOrder
+    stock?: SortOrder
+    description?: SortOrder
+    price?: SortOrder
     viewsCount?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -6696,11 +6696,11 @@ export namespace Prisma {
     NOT?: ProductWhereInput | ProductWhereInput[]
     name?: StringFilter<"Product"> | string
     category?: StringFilter<"Product"> | string
-    ImgLink?: StringFilter<"Product"> | string
+    imgLink?: StringFilter<"Product"> | string
     totalSold?: IntFilter<"Product"> | number
-    Stock?: IntFilter<"Product"> | number
-    Description?: StringFilter<"Product"> | string
-    Price?: FloatFilter<"Product"> | number
+    stock?: IntFilter<"Product"> | number
+    description?: StringFilter<"Product"> | string
+    price?: FloatFilter<"Product"> | number
     viewsCount?: IntFilter<"Product"> | number
     createdAt?: DateTimeFilter<"Product"> | Date | string
     updatedAt?: DateTimeFilter<"Product"> | Date | string
@@ -6713,11 +6713,11 @@ export namespace Prisma {
     productId?: SortOrder
     name?: SortOrder
     category?: SortOrder
-    ImgLink?: SortOrder
+    imgLink?: SortOrder
     totalSold?: SortOrder
-    Stock?: SortOrder
-    Description?: SortOrder
-    Price?: SortOrder
+    stock?: SortOrder
+    description?: SortOrder
+    price?: SortOrder
     viewsCount?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -6736,11 +6736,11 @@ export namespace Prisma {
     productId?: StringWithAggregatesFilter<"Product"> | string
     name?: StringWithAggregatesFilter<"Product"> | string
     category?: StringWithAggregatesFilter<"Product"> | string
-    ImgLink?: StringWithAggregatesFilter<"Product"> | string
+    imgLink?: StringWithAggregatesFilter<"Product"> | string
     totalSold?: IntWithAggregatesFilter<"Product"> | number
-    Stock?: IntWithAggregatesFilter<"Product"> | number
-    Description?: StringWithAggregatesFilter<"Product"> | string
-    Price?: FloatWithAggregatesFilter<"Product"> | number
+    stock?: IntWithAggregatesFilter<"Product"> | number
+    description?: StringWithAggregatesFilter<"Product"> | string
+    price?: FloatWithAggregatesFilter<"Product"> | number
     viewsCount?: IntWithAggregatesFilter<"Product"> | number
     createdAt?: DateTimeWithAggregatesFilter<"Product"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Product"> | Date | string
@@ -7046,11 +7046,11 @@ export namespace Prisma {
     productId: string
     name: string
     category: string
-    ImgLink: string
+    imgLink: string
     totalSold: number
-    Stock: number
-    Description: string
-    Price: number
+    stock: number
+    description: string
+    price: number
     viewsCount?: number
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -7063,11 +7063,11 @@ export namespace Prisma {
     productId: string
     name: string
     category: string
-    ImgLink: string
+    imgLink: string
     totalSold: number
-    Stock: number
-    Description: string
-    Price: number
+    stock: number
+    description: string
+    price: number
     viewsCount?: number
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -7079,11 +7079,11 @@ export namespace Prisma {
     productId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
-    ImgLink?: StringFieldUpdateOperationsInput | string
+    imgLink?: StringFieldUpdateOperationsInput | string
     totalSold?: IntFieldUpdateOperationsInput | number
-    Stock?: IntFieldUpdateOperationsInput | number
-    Description?: StringFieldUpdateOperationsInput | string
-    Price?: FloatFieldUpdateOperationsInput | number
+    stock?: IntFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+    price?: FloatFieldUpdateOperationsInput | number
     viewsCount?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -7096,11 +7096,11 @@ export namespace Prisma {
     productId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
-    ImgLink?: StringFieldUpdateOperationsInput | string
+    imgLink?: StringFieldUpdateOperationsInput | string
     totalSold?: IntFieldUpdateOperationsInput | number
-    Stock?: IntFieldUpdateOperationsInput | number
-    Description?: StringFieldUpdateOperationsInput | string
-    Price?: FloatFieldUpdateOperationsInput | number
+    stock?: IntFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+    price?: FloatFieldUpdateOperationsInput | number
     viewsCount?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -7113,11 +7113,11 @@ export namespace Prisma {
     productId: string
     name: string
     category: string
-    ImgLink: string
+    imgLink: string
     totalSold: number
-    Stock: number
-    Description: string
-    Price: number
+    stock: number
+    description: string
+    price: number
     viewsCount?: number
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -7127,11 +7127,11 @@ export namespace Prisma {
     productId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
-    ImgLink?: StringFieldUpdateOperationsInput | string
+    imgLink?: StringFieldUpdateOperationsInput | string
     totalSold?: IntFieldUpdateOperationsInput | number
-    Stock?: IntFieldUpdateOperationsInput | number
-    Description?: StringFieldUpdateOperationsInput | string
-    Price?: FloatFieldUpdateOperationsInput | number
+    stock?: IntFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+    price?: FloatFieldUpdateOperationsInput | number
     viewsCount?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -7142,11 +7142,11 @@ export namespace Prisma {
     productId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
-    ImgLink?: StringFieldUpdateOperationsInput | string
+    imgLink?: StringFieldUpdateOperationsInput | string
     totalSold?: IntFieldUpdateOperationsInput | number
-    Stock?: IntFieldUpdateOperationsInput | number
-    Description?: StringFieldUpdateOperationsInput | string
-    Price?: FloatFieldUpdateOperationsInput | number
+    stock?: IntFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+    price?: FloatFieldUpdateOperationsInput | number
     viewsCount?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -7516,11 +7516,11 @@ export namespace Prisma {
     productId?: SortOrder
     name?: SortOrder
     category?: SortOrder
-    ImgLink?: SortOrder
+    imgLink?: SortOrder
     totalSold?: SortOrder
-    Stock?: SortOrder
-    Description?: SortOrder
-    Price?: SortOrder
+    stock?: SortOrder
+    description?: SortOrder
+    price?: SortOrder
     viewsCount?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -7529,8 +7529,8 @@ export namespace Prisma {
   export type ProductAvgOrderByAggregateInput = {
     id?: SortOrder
     totalSold?: SortOrder
-    Stock?: SortOrder
-    Price?: SortOrder
+    stock?: SortOrder
+    price?: SortOrder
     viewsCount?: SortOrder
   }
 
@@ -7539,11 +7539,11 @@ export namespace Prisma {
     productId?: SortOrder
     name?: SortOrder
     category?: SortOrder
-    ImgLink?: SortOrder
+    imgLink?: SortOrder
     totalSold?: SortOrder
-    Stock?: SortOrder
-    Description?: SortOrder
-    Price?: SortOrder
+    stock?: SortOrder
+    description?: SortOrder
+    price?: SortOrder
     viewsCount?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -7554,11 +7554,11 @@ export namespace Prisma {
     productId?: SortOrder
     name?: SortOrder
     category?: SortOrder
-    ImgLink?: SortOrder
+    imgLink?: SortOrder
     totalSold?: SortOrder
-    Stock?: SortOrder
-    Description?: SortOrder
-    Price?: SortOrder
+    stock?: SortOrder
+    description?: SortOrder
+    price?: SortOrder
     viewsCount?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -7567,8 +7567,8 @@ export namespace Prisma {
   export type ProductSumOrderByAggregateInput = {
     id?: SortOrder
     totalSold?: SortOrder
-    Stock?: SortOrder
-    Price?: SortOrder
+    stock?: SortOrder
+    price?: SortOrder
     viewsCount?: SortOrder
   }
 
@@ -8370,11 +8370,11 @@ export namespace Prisma {
     productId: string
     name: string
     category: string
-    ImgLink: string
+    imgLink: string
     totalSold: number
-    Stock: number
-    Description: string
-    Price: number
+    stock: number
+    description: string
+    price: number
     viewsCount?: number
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -8386,11 +8386,11 @@ export namespace Prisma {
     productId: string
     name: string
     category: string
-    ImgLink: string
+    imgLink: string
     totalSold: number
-    Stock: number
-    Description: string
-    Price: number
+    stock: number
+    description: string
+    price: number
     viewsCount?: number
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -8455,11 +8455,11 @@ export namespace Prisma {
     productId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
-    ImgLink?: StringFieldUpdateOperationsInput | string
+    imgLink?: StringFieldUpdateOperationsInput | string
     totalSold?: IntFieldUpdateOperationsInput | number
-    Stock?: IntFieldUpdateOperationsInput | number
-    Description?: StringFieldUpdateOperationsInput | string
-    Price?: FloatFieldUpdateOperationsInput | number
+    stock?: IntFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+    price?: FloatFieldUpdateOperationsInput | number
     viewsCount?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -8471,11 +8471,11 @@ export namespace Prisma {
     productId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
-    ImgLink?: StringFieldUpdateOperationsInput | string
+    imgLink?: StringFieldUpdateOperationsInput | string
     totalSold?: IntFieldUpdateOperationsInput | number
-    Stock?: IntFieldUpdateOperationsInput | number
-    Description?: StringFieldUpdateOperationsInput | string
-    Price?: FloatFieldUpdateOperationsInput | number
+    stock?: IntFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+    price?: FloatFieldUpdateOperationsInput | number
     viewsCount?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -8597,11 +8597,11 @@ export namespace Prisma {
     productId: string
     name: string
     category: string
-    ImgLink: string
+    imgLink: string
     totalSold: number
-    Stock: number
-    Description: string
-    Price: number
+    stock: number
+    description: string
+    price: number
     viewsCount?: number
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -8613,11 +8613,11 @@ export namespace Prisma {
     productId: string
     name: string
     category: string
-    ImgLink: string
+    imgLink: string
     totalSold: number
-    Stock: number
-    Description: string
-    Price: number
+    stock: number
+    description: string
+    price: number
     viewsCount?: number
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -8668,11 +8668,11 @@ export namespace Prisma {
     productId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
-    ImgLink?: StringFieldUpdateOperationsInput | string
+    imgLink?: StringFieldUpdateOperationsInput | string
     totalSold?: IntFieldUpdateOperationsInput | number
-    Stock?: IntFieldUpdateOperationsInput | number
-    Description?: StringFieldUpdateOperationsInput | string
-    Price?: FloatFieldUpdateOperationsInput | number
+    stock?: IntFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+    price?: FloatFieldUpdateOperationsInput | number
     viewsCount?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -8684,11 +8684,11 @@ export namespace Prisma {
     productId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
-    ImgLink?: StringFieldUpdateOperationsInput | string
+    imgLink?: StringFieldUpdateOperationsInput | string
     totalSold?: IntFieldUpdateOperationsInput | number
-    Stock?: IntFieldUpdateOperationsInput | number
-    Description?: StringFieldUpdateOperationsInput | string
-    Price?: FloatFieldUpdateOperationsInput | number
+    stock?: IntFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+    price?: FloatFieldUpdateOperationsInput | number
     viewsCount?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string

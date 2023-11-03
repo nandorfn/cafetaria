@@ -24,6 +24,9 @@ const Navbar: React.FC<Navbar> = ({
               <Link href={'/'}>
                 <h1 className='font-medium text-2xl text-success'>Cafetaria</h1>
               </Link>
+              <Link href={'/admin'}>
+                Admin
+              </Link>
 
               <button className='bg-warning hover:bg-yellow-300 md:hidden rounded-lg p-2'>
                 <Image

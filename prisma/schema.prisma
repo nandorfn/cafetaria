@@ -32,11 +32,11 @@ model Product {
   productId           String   @unique
   name                String
   category            String
-  ImgLink             String
+  imgLink             String
   totalSold           Int
-  Stock               Int
-  Description         String
-  Price               Float
+  stock               Int
+  description         String
+  price               Float
   viewsCount          Int      @default(0)
   createdAt           DateTime @default(now())
   updatedAt           DateTime @updatedAt
