@@ -2,7 +2,11 @@ import ProductContainer from "./components/Container/ProductContainer";
 import CategoryFilter from "./components/Menu/CategoryFilter";
 import Navbar from "./components/Navbar/Navbar";
 
-export default function Home() {
+export default function Home({
+  searchParams,
+}: {
+  searchParams: { [key: string]: string | string[] | undefined }
+}) {
   return (
     <>
       <Navbar>
@@ -15,7 +19,9 @@ export default function Home() {
             </div>
           </section>
           <div className=" h-screen pb-52 overflow-y-scroll" >
-            <ProductContainer />
+            <ProductContainer
+              params={searchParams}
+            />
           </div>
         </div>
       </Navbar>

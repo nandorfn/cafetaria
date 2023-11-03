@@ -11,3 +11,15 @@ export const categoryFood: Category[] = [
   {id: 3, label: 'Drinks', value: 'drinks'},
   {id: 4, label: 'Dishes', value: 'dishes'},
 ]
+
+export type CategoryLink = {
+  label: string;
+  link: string;
+}
+export const categoryLink: CategoryLink[] = [
+  { label: 'All Categories', link: '' },
+  { label: 'Main Course', link: 'main' },
+  { label: 'Appetizer', link: 'appetizer' },
+  { label: 'Drinks', link: 'drinks' },
+  { label: 'Dishes', link: 'dishes' },
+]

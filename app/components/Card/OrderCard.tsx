@@ -3,10 +3,11 @@ import Image from "next/image";
 import xIcon from '@/app/assets/svg/xIcon.svg';
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { decrement, increment } from "@/app/redux/slice/cartSlice";
+import { decrement, increment, deleteCart } from "@/app/redux/slice/cartSlice";
+import {  ProductCartState } from "@/app/utils/types";
 
 type Props = {
-  item: any;
+  item: ProductCartState;
 }
 
 const OrderCard = ({ item }: Props) => {
@@ -17,6 +18,10 @@ const OrderCard = ({ item }: Props) => {
     } else if (action === '-') {
       Dispatch(decrement(item.productId))
     }
+  }
+  
+  const deleteCartById = (productId: string) => {
+    Dispatch(deleteCart(productId))
   }
 
   return (
@@ -49,7 +54,9 @@ const OrderCard = ({ item }: Props) => {
           </div>
         </div>
 
-        <button className=" rounded-lg border-0 bg-transparent px-2 btn btn-sm hover:bg-warning">
+        <button 
+          onClick={() => deleteCartById(item.productId)}
+          className=" rounded-lg border-0 bg-transparent px-2 btn btn-sm hover:bg-warning">
           <Image
             src={xIcon}
             alt="Delete"
