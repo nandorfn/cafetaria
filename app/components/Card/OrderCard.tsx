@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { decrement, increment, deleteCart } from "@/app/redux/slice/cartSlice";
 import {  ProductCartState } from "@/app/utils/types";
+import axios from "axios";
 
 type Props = {
   item: ProductCartState;
@@ -20,8 +21,16 @@ const OrderCard = ({ item }: Props) => {
     }
   }
   
-  const deleteCartById = (productId: string) => {
-    Dispatch(deleteCart(productId))
+  const deleteCartById = async (productId: string, id: number) => {
+    await axios.delete(`/api/carts/${id}`)
+    .then((res) => {
+      if (res.status === 200) {
+        Dispatch(deleteCart(productId))
+      }
+    })
+    .catch(error => {
+      console.log(error)
+    })
   }
 
   return (
@@ -55,7 +64,7 @@ const OrderCard = ({ item }: Props) => {
         </div>
 
         <button 
-          onClick={() => deleteCartById(item.productId)}
+          onClick={() => deleteCartById(item.productId, item.id)}
           className=" rounded-lg border-0 bg-transparent px-2 btn btn-sm hover:bg-warning">
           <Image
             src={xIcon}

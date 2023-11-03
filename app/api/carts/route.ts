@@ -55,20 +55,36 @@ export const POST = async (req: Request) => {
 export const GET = async (req: Request) => {
   const token = req.headers.get('cookie')?.split('=')[1];
   const verifiedToken = token && (await verifyAuth(token));
-  
+
   if (!verifiedToken) {
-    return NextResponse.json({errors: 'Unathorized'}, { status: 200})
+    return NextResponse.json({ errors: 'Unauthorized' }, { status: 401 });
   }
 
-  const carts = await prisma.cart.findMany({
-    where: {
-      userId: verifiedToken.userId
+  try {
+    const carts = await prisma.cart.findMany({
+      where: {
+        userId: verifiedToken.userId
+      }
+    });
+
+    const combinedData = [];
+
+    for (const cart of carts) {
+      const product = await prisma.product.findFirst({
+        where: {
+          productId: cart.productId
+        }
+      });
+
+      combinedData.push({
+        quantity: cart.quantity,
+        ...product
+      });
     }
-  })
-  
-  console.log(carts)
-  const products = await prisma.product.findMany()
-  
-  
-  return NextResponse.json(carts, { status: 200})
+
+    return NextResponse.json(combinedData, { status: 200 });
+  } catch (error) {
+    return NextResponse.json({ errors: 'Internal Server Error' }, { status: 500 });
+  }
 }
+

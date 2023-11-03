@@ -18,11 +18,11 @@ const OrderContainer: React.FC = () => {
   
   useEffect(() => {
     const fetchData = async () => {
-      const lastReturnedAction = await store.dispatch(fetchUserCart())
+      await store.dispatch(fetchUserCart())
     }
     fetchData();
   }, [])
-    
+      
   return (
     <>
       <ul className="flex flex-col gap-3 h-screen pb-4 overflow-y-scroll" style={{height: 'calc(100vh - 30rem)'}}>
