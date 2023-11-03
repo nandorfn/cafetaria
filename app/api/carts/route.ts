@@ -1,12 +1,20 @@
 import prisma from "@/app/lib/prisma";
+import { verifyAuth } from "@/app/utils/auth";
 import { revalidateTag } from "next/cache";
 import { NextResponse } from "next/server";
 
 export const POST = async (req: Request) => {
   const body = await req.json();
+  const token = req.headers.get('cookie')?.split('=')[1];
+  const verifiedToken = token && (await verifyAuth(token));
+  
+  if (!verifiedToken) {
+    return NextResponse.json({errors: 'Unauthorized'}, { status: 401})
+  }
+  
   const existingCart = await prisma.cart.findFirst({
     where: {
-      userId: body.userId,
+      userId: verifiedToken.userId,
       productId: body.productId,
     }
   })
@@ -19,7 +27,7 @@ export const POST = async (req: Request) => {
     });
 
     if (product) {
-      const newQuantity = Math.min(existingCart.quantity + Number(body.quantity), Math.min(product.stock, 10));
+      const newQuantity = Math.min(existingCart.quantity + 1);
       const updatedCartItem = await prisma.cart.update({
         where: {
           id: existingCart.id
@@ -37,11 +45,28 @@ export const POST = async (req: Request) => {
   } else {
     const newCartItem = await prisma.cart.create({
       data: {
-        userId: body.userId,
+        userId: verifiedToken.userId,
         productId: body.productId,
-        quantity: Number(body.quantity)
+        quantity: 1
       }
     })
     return NextResponse.json(newCartItem, { status: 201 });
   }
+}
+export const GET = async (req: Request) => {
+  const token = req.headers.get('cookie')?.split('=')[1];
+  const verifiedToken = token && (await verifyAuth(token));
+  
+  if (!verifiedToken) {
+    return NextResponse.json({errors: 'Unathorized'}, { status: 200})
+  }
+
+  const carts = await prisma.cart.findMany({
+    where: {
+      userId: verifiedToken.userId
+    }
+  })
+  
+  console.log(carts);
+  return NextResponse.json(carts, { status: 200})
 }

@@ -1,28 +1,38 @@
 'use client'
+import { addCart } from "@/app/redux/slice/cartSlice";
 import { Food } from "@/app/utils/types";
+import axios from "axios";
 import Image from "next/image";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 
 type Props = {
   data: Food;
 }
 
-const FoodCard = ({data}: Props) => {
+const FoodCard = ({ data }: Props) => {
   const { price } = data;
   const [product, setProduct] = useState([data]);
-  const [cart, setCart] = useState<Food[]>([]);
-  
+  const dispatch = useDispatch();
+
+
   const selectedCart = (id: string) => {
-    const newCart = [...product.filter((item) => item.id === Number(id))]
-    
-    }
-  
+    const selectedItem = product.find(item => item.productId === id);
+    return selectedItem
+  }
+
   const addProductToCart = (e: React.SyntheticEvent) => {
     const { id } = e.target as HTMLButtonElement;
-    selectedCart(id);
+    const newCart = selectedCart(id);
+    postCartData(newCart)
   }
-  
-  console
+
+  const postCartData = async (data: any) => {
+    axios.post('/api/carts', data.id)
+    .then((res) => {
+      dispatch(addCart(data))
+    })
+  }
   return (
     <>
       <div className="card card-compact w-fit h-full bg-white shadow-xl">
@@ -43,9 +53,9 @@ const FoodCard = ({data}: Props) => {
           </div>
           <p>{data.description}</p>
           <div className="card-actions justify-end">
-            <button 
+            <button
               onClick={addProductToCart}
-              id={data.id.toString()} 
+              id={data.productId}
               className="btn btn-warning btn-sm text-white hover:opacity-70">Add to Cart</button>
           </div>
         </div>

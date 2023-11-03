@@ -5,6 +5,7 @@ import Image from "next/image";
 import Avatar from "../Avatar/Avatar";
 import Link from "next/link";
 import { checkUserLogin } from "@/app/utils/auth";
+import OrderContainer from "../Container/OrderContainer";
 
 interface Sidebar extends HTMLAttributes<HTMLElement> { }
 const Sidebar: React.FC<Sidebar> = async ({ className }) => {
@@ -34,22 +35,7 @@ const Sidebar: React.FC<Sidebar> = async ({ className }) => {
           <h1 className="text-2xl font-medium">My Order</h1>
           <p className="text-neutral">Select category you&apos;d like to eat from.</p>
         </div>
-        <ul className="flex flex-col gap-3">
-          <li>
-            <OrderCard />
-          </li>
-          <li>
-            <OrderCard />
-          </li>
-          <li>
-            <OrderCard />
-          </li>
-          <li>
-            <OrderCard />
-          </li>
-        </ul>
-        <div className="divider"></div>
-        <h1 className="text-lg font-medium">Total Amount: </h1>
+        <OrderContainer />
         {!user
           ?
           <Link href={'/login'}>

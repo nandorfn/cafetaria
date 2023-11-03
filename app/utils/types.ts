@@ -63,12 +63,28 @@ export const tokenSchema = z.object({
 })
 export type JwtSchema = z.infer<typeof tokenSchema>;
 
-export type Food = {
+export type CommonProductProps = {
   id: number;
+  productId: string;
   name: string;
   category: string;
   imgLink: string;
   stock: number;
   description: string;
   price: number;
+}
+
+export type Food = CommonProductProps;
+export type ProductCart = CommonProductProps & {
+  totalSold: number;
+  viewsCount: number;
+  createdAt: Date;
+  updatedAt: Date;
+}
+export type ProductCartState = CommonProductProps & {
+  quantity: number;
+  totalSold: number;
+  viewsCount: number;
+  createdAt: Date;
+  updatedAt: Date;
 }
