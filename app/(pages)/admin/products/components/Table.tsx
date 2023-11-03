@@ -9,7 +9,6 @@ type Props = {
 }
 
 const Table = ({ products }: Props) => {
-  const [product, setProduct] = useState(products);
   const [filteredProduct, setFilteredProduct] = useState(products);
   const [search, setSearch] = useState('');
   
@@ -31,6 +30,7 @@ const Table = ({ products }: Props) => {
   return (
     <>
       <FormProdcut
+        setFilteredProduct={setFilteredProduct}
         search={search}
         handleInput={handleInput}
       />

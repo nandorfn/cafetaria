@@ -18,7 +18,7 @@ export default function Home({
               <CategoryFilter />
             </div>
           </section>
-          <div className=" h-screen pb-52 overflow-y-scroll" >
+          <div className=" h-screen pb-52 overflow-y-scroll" style={{height: 'calc(100vh - 16rem)'}}>
             <ProductContainer
               params={searchParams}
             />

@@ -5,15 +5,17 @@ import { Select } from '@/app/components/Form/Select';
 import { Textarea } from '@/app/components/Form/Textarea';
 import useProductForm from "@/app/hooks/useProductForm";
 import { categoryFood } from '@/app/utils/objectData';
+import { ProductCart } from "@/app/utils/types";
 import { Dispatch, SetStateAction } from "react";
 import { Controller } from 'react-hook-form';
 
 type Props = {
   handleInput: (e: React.SyntheticEvent) => void;
   search: string;
+  setFilteredProduct: Dispatch<SetStateAction<ProductCart[]>>
 }
 
-const FormProdcut = ({ handleInput, search }: Props) => {
+const FormProdcut = ({ handleInput, search, setFilteredProduct }: Props) => {
   const {
     register,
     handleSubmit,
@@ -23,7 +25,7 @@ const FormProdcut = ({ handleInput, search }: Props) => {
     loading,
     modal,
     setModal
-  } = useProductForm();
+  } = useProductForm(setFilteredProduct);
 
   return (
     <>

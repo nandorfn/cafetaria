@@ -48,23 +48,23 @@ const FoodCard = ({ data }: Props) => {
   
   return (
     <>
-      <div className="card card-compact w-fit h-full bg-white shadow-xl">
-        <figure>
+      <div className="card card-compact w-fit min-h-full bg-white shadow-xl">
+        <figure className="h-[60%]">
           <Image
             className='w-full'
             src={data.imgLink}
             alt="Jacket"
-            width={400}
-            height={400}
+            width={278}
+            height={180}
             priority
           />
         </figure>
-        <div className="card-body">
-          <div className="flex w-full flex-row justify-between items-center">
-            <h2 className="w-fit card-title">{data.name}</h2>
-            <p className="w-fit text-end text-error font-bold text-base">{`Rp${price.toLocaleString('ID-id')}`}</p>
+        <div className="card-body h-[40%]">
+          <div className="flex flex-col  w-full">
+            <h2 className="w-fit card-title line-clamp-1">{data.name}</h2>
+            <p className="w-fit md:text-end text-error font-bold text-sm md:text-base">{`Rp${price.toLocaleString('ID-id')}`}</p>
           </div>
-          <p>{data.description}</p>
+          <p className="text-neutral text-xs md:text-sm line-clamp-1">{data.description}</p>
           <div className="card-actions justify-end">
             <button
               onClick={() => addProductToCart(data.productId)}

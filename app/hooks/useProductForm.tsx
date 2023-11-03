@@ -1,10 +1,10 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
-import { useState } from "react";
-import { TProductSchema, productSchema } from "../utils/types";
+import { Dispatch, SetStateAction, useState } from "react";
+import { ProductCart, TProductSchema, productSchema } from "../utils/types";
 
-const useProductForm = () => {
+const useProductForm = (setState: Dispatch<SetStateAction<ProductCart[]>>) => {
   const [loading, setLoading] = useState(false);
   const [modal, setModal] = useState(false);
   const {
@@ -24,7 +24,10 @@ const useProductForm = () => {
     axios.post(`/api/products`, data)
       .then((res) => {
           if (res.status === 201) {
-            
+            setState((prevState) => [
+              ...prevState,
+              res.data
+            ])
           } else {
             throw new Error(res.data.error)
           }

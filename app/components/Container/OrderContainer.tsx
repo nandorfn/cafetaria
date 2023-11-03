@@ -25,7 +25,7 @@ const OrderContainer: React.FC = () => {
     
   return (
     <>
-      <ul className="flex flex-col gap-3">
+      <ul className="flex flex-col gap-3 h-screen pb-4 overflow-y-scroll" style={{height: 'calc(100vh - 30rem)'}}>
         {!carts
           ? <p>Empty</p>
           : carts?.map((item: any) => (
@@ -39,7 +39,7 @@ const OrderContainer: React.FC = () => {
         }
       </ul>
 
-      <div className="divider"></div>
+      <div className="divider my-0 py-0"></div>
       <Flex align={'between'}>
         <h1 className="text-lg font-medium">{`Total Amount:`}</h1>
         <h1 className="text-lg font-medium">{`Rp${subTotal.toLocaleString('ID-id')}`}</h1>
