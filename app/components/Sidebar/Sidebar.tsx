@@ -6,6 +6,7 @@ import Avatar from "../Avatar/Avatar";
 import Link from "next/link";
 import { checkUserLogin } from "@/app/utils/auth";
 import OrderContainer from "../Container/OrderContainer";
+import OrderBtn from "../Button/OrderBtn";
 
 interface Sidebar extends HTMLAttributes<HTMLElement> { }
 const Sidebar: React.FC<Sidebar> = async ({ className }) => {
@@ -14,17 +15,9 @@ const Sidebar: React.FC<Sidebar> = async ({ className }) => {
   return (
     <>
       <aside className="hidden lg:flex w-[20%] lg:flex-col mx-auto px-6 gap-5 h-screen">
-        <section className="flex flex-row justify-between mt-4 items-center">
+        <section className="flex flex-row justify-end mt-4 items-center">
           {user &&
             <>
-              <Link href={'/order'}>
-                <Image
-                  src={shopBag}
-                  alt="Order History"
-                  width={24}
-                  height={24}
-                />
-              </Link>
               <Avatar
                 username={user?.username ?? ''}
               />
@@ -42,7 +35,8 @@ const Sidebar: React.FC<Sidebar> = async ({ className }) => {
             <button className="btn btn-warning w-full text-white hover:opacity-70">{'Login to Checkout'}</button>
           </Link>
 
-          : <button className="btn btn-warning text-white hover:opacity-70">{'Checkout'}</button>
+          :
+          <OrderBtn />
 
         }
       </aside>
