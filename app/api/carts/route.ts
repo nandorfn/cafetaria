@@ -73,11 +73,25 @@ export const GET = async (req: Request) => {
       const product = await prisma.product.findFirst({
         where: {
           productId: cart.productId
+        },
+        select: {
+          productId: true,
+          name: true,
+          category: true,
+          imgLink: true,
+          totalSold: true,
+          stock: true,
+          description: true,
+          price: true,
+          viewsCount: true,
+          createdAt: true,
+          updatedAt: true
         }
       });
 
       combinedData.push({
         quantity: cart.quantity,
+        id: cart.id,
         ...product
       });
     }

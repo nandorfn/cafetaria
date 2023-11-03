@@ -13,11 +13,28 @@ type Props = {
 
 const OrderCard = ({ item }: Props) => {
   const Dispatch = useDispatch();
+  
+  const updateQuantity = async (productId: string, quantity: number, operation: string) => {
+    try {
+      if (operation === '+') {
+        await axios.patch(`/api/carts/${productId}`, { quantity });
+        Dispatch(increment(productId));
+      } else {
+        await axios.patch(`/api/carts/${productId}`, { quantity });
+        Dispatch(decrement(productId));
+      }
+    } catch (error) {
+      console.error('Gagal memperbarui quantity:', error);
+    }
+  };
+  
   const counterNumber = (action: string) => {
     if (action === '+') {
-      Dispatch(increment(item.productId))
+      updateQuantity(item.productId, item.quantity + 1, '+' );
     } else if (action === '-') {
-      Dispatch(decrement(item.productId))
+      if (item.quantity > 1) {
+        updateQuantity(item.productId, item.quantity - 1, '-');
+      }
     }
   }
   
@@ -32,7 +49,7 @@ const OrderCard = ({ item }: Props) => {
       console.log(error)
     })
   }
-
+  
   return (
     <>
       <figure className="flex flex-row gap-2 items-center justify-between">

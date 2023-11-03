@@ -88,3 +88,23 @@ export type ProductCartState = CommonProductProps & {
   createdAt: Date;
   updatedAt: Date;
 }
+
+export type cart = {
+  productInfo: any;
+  id: number;
+  userId: string;
+  productId: string;
+  quantity: number;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+
+export type TOrderItem = {
+  id: number;
+  orderId: string;
+  productId: string;
+  quantity: number;
+  createdAt: Date;
+  updatedAt: Date;
+}

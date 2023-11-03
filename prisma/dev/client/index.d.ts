@@ -6773,17 +6773,17 @@ export namespace Prisma {
 
   export type CartWhereUniqueInput = Prisma.AtLeast<{
     id?: number
+    productId?: string
     AND?: CartWhereInput | CartWhereInput[]
     OR?: CartWhereInput[]
     NOT?: CartWhereInput | CartWhereInput[]
     userId?: StringFilter<"Cart"> | string
-    productId?: StringFilter<"Cart"> | string
     quantity?: IntFilter<"Cart"> | number
     createdAt?: DateTimeFilter<"Cart"> | Date | string
     updatedAt?: DateTimeFilter<"Cart"> | Date | string
     user?: XOR<UserRelationFilter, UserWhereInput>
     product?: XOR<ProductRelationFilter, ProductWhereInput>
-  }, "id">
+  }, "id" | "productId">
 
   export type CartOrderByWithAggregationInput = {
     id?: SortOrder
