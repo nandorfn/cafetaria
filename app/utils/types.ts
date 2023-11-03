@@ -29,3 +29,82 @@ export const registerSchema = z.object({
     path: ["confirmPassword"],
   });
 export type TRegisterSchema = z.infer<typeof registerSchema>;
+
+export const productSchema = z.object({
+  name: z.string().min(1, 'Product Name cannot be empty'),
+  category: z.string().min(1, 'Product Category cannot be empty'),
+  imgLink: z.string().min(1, 'Product Image cannot be empty'),
+  stock: z.string().min(1, 'Stock cannot be empty'),
+  description: z.string().min(1, 'Description cannot be empty'),
+  price: z.string().min(1, 'Price cannot be empty'),
+});
+export type TProductSchema = z.infer<typeof productSchema>;
+
+export type User = {
+  id: number;
+  userId: string;
+  name: string;
+  email: string;
+  password: string;
+  salt: string;
+  avatar: string;
+  role: string;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+// Token schema
+export const tokenSchema = z.object({
+  username: z.string(),
+  userId: z.string(),
+  role: z.string(),
+  iat: z.number(),
+  exp: z.number(),
+})
+export type JwtSchema = z.infer<typeof tokenSchema>;
+
+export type CommonProductProps = {
+  id: number;
+  productId: string;
+  name: string;
+  category: string;
+  imgLink: string;
+  stock: number;
+  description: string;
+  price: number;
+}
+
+export type Food = CommonProductProps;
+export type ProductCart = CommonProductProps & {
+  totalSold: number;
+  viewsCount: number;
+  createdAt: Date;
+  updatedAt: Date;
+}
+export type ProductCartState = CommonProductProps & {
+  quantity: number;
+  totalSold: number;
+  viewsCount: number;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+export type cart = {
+  productInfo: any;
+  id: number;
+  userId: string;
+  productId: string;
+  quantity: number;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+
+export type TOrderItem = {
+  id: number;
+  orderId: string;
+  productId: string;
+  quantity: number;
+  createdAt: Date;
+  updatedAt: Date;
+}

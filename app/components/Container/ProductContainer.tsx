@@ -1,20 +1,31 @@
+import { getAllFoods } from "@/app/utils/queryDb";
 import FoodCard from "../Card/FoodCard";
+import { Suspense } from "react";
+import CardSkeleton from "../Skeleton/CardSkeleton";
+import { ProductCart } from "@/app/utils/types";
 
-const ProductContainer: React.FC = () => {
-    return (
-        <>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 mb-10 ">
-            <FoodCard />
-            <FoodCard />
-            <FoodCard />
-            <FoodCard />
-            <FoodCard />
-            <FoodCard />
-            <FoodCard />
-            <FoodCard />
-          </div>
-        </>
-    );
+type Props = {
+  params: {[key: string]: string | string[] | undefined}
+}
+
+const ProductContainer = async ({params}: Props) => {
+  const products = await getAllFoods({params})
+  return (
+    <>
+        <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 mb-10 ">
+          {products.map((item: ProductCart) => (
+            <li key={item.id}>
+            <Suspense fallback={<CardSkeleton />}>
+              <FoodCard
+                data={item}
+              />
+            </Suspense>
+            </li>
+          ))
+          }
+        </ul>
+    </>
+  );
 };
 
 export default ProductContainer;

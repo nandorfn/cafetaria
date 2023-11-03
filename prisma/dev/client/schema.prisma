@@ -32,11 +32,11 @@ model Product {
   productId           String   @unique
   name                String
   category            String
-  ImgLink             String
-  totalSold           Int
-  Stock               Int
-  Description         String
-  Price               Float
+  imgLink             String
+  totalSold           Int     @default(0)
+  stock               Int
+  description         String
+  price               Float
   viewsCount          Int      @default(0)
   createdAt           DateTime @default(now())
   updatedAt           DateTime @updatedAt
@@ -47,7 +47,7 @@ model Product {
 model Cart {
   id          Int      @id @default(autoincrement())
   userId      String
-  productId   String
+  productId   String    @unique
   quantity    Int
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt

@@ -20,3 +20,29 @@ body {
   color: rgb(var(--foreground-rgb));
   background: #fff;
 }
+
+.bgModal {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+.modalWrapper {
+  position: absolute;
+  overflow: hidden;
+  top: 28.4rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.form__add-product {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  padding: 2rem;
+  width: 90vw;
+  max-width: 42rem;
+  gap: 1rem;
+  border-radius: 0.75rem;
+}

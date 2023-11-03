@@ -1,30 +1,30 @@
-import Image from "next/image";
-import LoginForm from "./components/Auth/LoginForm";
-import img from '@/app/assets/victoria-shes-UC0HZdUitWY-unsplash.jpg'
+import ProductContainer from "./components/Container/ProductContainer";
+import CategoryFilter from "./components/Menu/CategoryFilter";
+import Navbar from "./components/Navbar/Navbar";
 
-export default function Home() {
+export default function Home({
+  searchParams,
+}: {
+  searchParams: { [key: string]: string | string[] | undefined }
+}) {
   return (
     <>
-      <main className="flex h-screen w-screen flex-row">
-        <div className="flex m-auto h-fit rounded-xl p-8">
-          <LoginForm />
-        </div>
-        <div className="card bg-base-100 shadow-xl image-full w-1/3 h-[90%] my-auto me-8 relative">
-          <figure>
-          <Image
-            className="rounded-3xl"
-            src={img}
-            fill={true}
-            alt="Thumbnail"
-            priority
-          />
-          </figure>
-          <div className="card-body flex justify-center my-auto items-center">
-            <h2 className="card-title text-4xl text-white">Crafing Something?</h2>
-            <p className="text-white text-xl">Let&apos; get you started!</p>
+      <Navbar>
+        <div className='mx-8 mt-3 gap-5 flex flex-col '>
+          <section className='flex flex-col gap-3'>
+            <h1 className='font-medium text-2xl'>{'Categories'}</h1>
+            <span className='text-neutral'>{'Select categories you like to eat from.'}</span>
+            <div className='stats rounded-none bg-transparent'>
+              <CategoryFilter />
+            </div>
+          </section>
+          <div className=" h-screen pb-52 overflow-y-scroll" style={{height: 'calc(100vh - 16rem)'}}>
+            <ProductContainer
+              params={searchParams}
+            />
           </div>
         </div>
-      </main>
+      </Navbar>
     </>
   )
 }

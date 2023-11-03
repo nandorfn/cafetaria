@@ -1,29 +1,77 @@
+'use client'
+import { addCart } from "@/app/redux/slice/cartSlice";
+import { Food } from "@/app/utils/types";
+import axios from "axios";
 import Image from "next/image";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 
-const FoodCard: React.FC = () => {
-  const imgurl = 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&q=80&w=1998&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+type Props = {
+  data: Food;
+}
 
+const FoodCard = ({ data }: Props) => {
+  const [loading, setLoading] = useState(false);
+  const [product, setProduct] = useState([data]);
+  const { price } = data;
+  const dispatch = useDispatch();
+
+
+  const selectedCart = (id: string) => {
+    const selectedItem = product.find(item => item.productId === id);
+    return selectedItem
+  }
+
+  const addProductToCart = (id: string) => {
+    const newCart = selectedCart(id);
+    postCartData(newCart)
+  }
+
+  const postCartData = async (data: any) => {
+    setLoading(true);
+    axios.post('/api/carts', {
+      productId: data.productId
+    })
+    .then((res) => {
+      if (res.status === 200 || res.status === 201) {
+        dispatch(addCart(data))
+      } else {
+        throw new Error(res.data.errors)
+      }
+    })
+    .catch((err) => {
+      const error = err.response.data.errors;
+      alert(error);
+    })
+    .finally(() => setLoading(false));
+  }
+  
   return (
     <>
-      <div className="card card-compact w-fit bg-white shadow-xl">
-        <figure>
+      <div className="card card-compact w-fit min-h-full bg-white shadow-xl">
+        <figure className="h-[60%]">
           <Image
             className='w-full'
-            src={imgurl}
+            src={data.imgLink}
             alt="Jacket"
-            width={400}
-            height={400}
+            width={278}
+            height={180}
             priority
           />
         </figure>
-        <div className="card-body">
-          <div className="flex w-full flex-row justify-between items-center">
-            <h2 className="w-fit card-title">Shoes!</h2>
-            <p className="w-fit text-end text-error font-bold text-base">$300</p>
+        <div className="card-body h-[40%]">
+          <div className="flex flex-col  w-full">
+            <h2 className="w-fit card-title line-clamp-1">{data.name}</h2>
+            <p className="w-fit md:text-end text-error font-bold text-sm md:text-base">{`Rp${price.toLocaleString('ID-id')}`}</p>
           </div>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
+          <p className="text-neutral text-xs md:text-sm line-clamp-1">{data.description}</p>
           <div className="card-actions justify-end">
-            <button className="btn btn-warning btn-sm text-white hover:opacity-70">Add to Cart</button>
+            <button
+              onClick={() => addProductToCart(data.productId)}
+              id={data.productId}
+              disabled={loading}
+              className="btn btn-warning btn-sm text-white hover:opacity-70 disabled:opacity-70">Add to Cart
+            </button>
           </div>
         </div>
       </div>
