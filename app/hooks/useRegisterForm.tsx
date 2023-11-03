@@ -32,7 +32,7 @@ const useRegisterForm = () => {
     axios.post('/api/register', newData)
       .then(response => {
         if (response.status === 200) {
-          router.push('/login')
+          router.push('/')
         } else {
           alert('Submitting form failed');
         }

@@ -29,3 +29,26 @@ export const registerSchema = z.object({
     path: ["confirmPassword"],
   });
 export type TRegisterSchema = z.infer<typeof registerSchema>;
+
+export type User = {
+  id: number;
+  userId: string;
+  name: string;
+  email: string;
+  password: string;
+  salt: string;
+  avatar: string;
+  role: string;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+// Token schema
+export const tokenSchema = z.object({
+  username: z.string(),
+  userId: z.string(),
+  role: z.string(),
+  iat: z.number(),
+  exp: z.number(),
+})
+export type JwtSchema = z.infer<typeof tokenSchema>;
