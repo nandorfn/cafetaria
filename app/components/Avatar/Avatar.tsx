@@ -1,7 +1,11 @@
 import Image from "next/image";
 import avatar from '@/app/assets/user.png'
 
-const Avatar: React.FC = () => {
+type Avatar = {
+  username: string;
+}
+
+const Avatar = ({username}: Avatar) => {
   return (
     <>
       <ul className="menu lg:menu-horizontal text-black  rounded-box p-0">
@@ -15,10 +19,10 @@ const Avatar: React.FC = () => {
                   height={30}
                   alt="User Avatar"
                 />
-                <p>John Doe</p>
+                <p>{username}</p>
               </figure>
             </summary>
-            <ul className="bg-white">
+            <ul className="bg-white flex justify-center py-2 rounded-md">
               <li>
                 <button className="btn btn-sm btn-error">Logout</button>
               </li>

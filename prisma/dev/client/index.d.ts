@@ -7047,7 +7047,7 @@ export namespace Prisma {
     name: string
     category: string
     imgLink: string
-    totalSold: number
+    totalSold?: number
     stock: number
     description: string
     price: number
@@ -7064,7 +7064,7 @@ export namespace Prisma {
     name: string
     category: string
     imgLink: string
-    totalSold: number
+    totalSold?: number
     stock: number
     description: string
     price: number
@@ -7114,7 +7114,7 @@ export namespace Prisma {
     name: string
     category: string
     imgLink: string
-    totalSold: number
+    totalSold?: number
     stock: number
     description: string
     price: number
@@ -8371,7 +8371,7 @@ export namespace Prisma {
     name: string
     category: string
     imgLink: string
-    totalSold: number
+    totalSold?: number
     stock: number
     description: string
     price: number
@@ -8387,7 +8387,7 @@ export namespace Prisma {
     name: string
     category: string
     imgLink: string
-    totalSold: number
+    totalSold?: number
     stock: number
     description: string
     price: number
@@ -8598,7 +8598,7 @@ export namespace Prisma {
     name: string
     category: string
     imgLink: string
-    totalSold: number
+    totalSold?: number
     stock: number
     description: string
     price: number
@@ -8614,7 +8614,7 @@ export namespace Prisma {
     name: string
     category: string
     imgLink: string
-    totalSold: number
+    totalSold?: number
     stock: number
     description: string
     price: number

@@ -30,6 +30,16 @@ export const registerSchema = z.object({
   });
 export type TRegisterSchema = z.infer<typeof registerSchema>;
 
+export const productSchema = z.object({
+  name: z.string().min(1, 'Product Name cannot be empty'),
+  category: z.string().min(1, 'Product Category cannot be empty'),
+  imgLink: z.string().min(1, 'Product Image cannot be empty'),
+  stock: z.string().min(1, 'Stock cannot be empty'),
+  description: z.string().min(1, 'Description cannot be empty'),
+  price: z.string().min(1, 'Price cannot be empty'),
+});
+export type TProductSchema = z.infer<typeof productSchema>;
+
 export type User = {
   id: number;
   userId: string;
@@ -52,3 +62,12 @@ export const tokenSchema = z.object({
   exp: z.number(),
 })
 export type JwtSchema = z.infer<typeof tokenSchema>;
+
+export type Food = {
+  name: string;
+  category: string;
+  imgLink: string;
+  stock: number;
+  description: string;
+  price: number;
+}

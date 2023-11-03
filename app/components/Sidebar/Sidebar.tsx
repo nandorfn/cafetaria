@@ -4,9 +4,12 @@ import shopBag from '@/app/assets/shopping-bag.png'
 import Image from "next/image";
 import Avatar from "../Avatar/Avatar";
 import Link from "next/link";
+import { checkUserLogin } from "@/app/utils/auth";
 
 interface Sidebar extends HTMLAttributes<HTMLElement> { }
-const Sidebar: React.FC<Sidebar> = ({ className }) => {
+const Sidebar: React.FC<Sidebar> = async ({ className }) => {
+  const user = await checkUserLogin();
+
   return (
     <>
       <aside className="hidden lg:flex lg:flex-col mx-auto px-4 gap-5 h-screen">
@@ -19,7 +22,9 @@ const Sidebar: React.FC<Sidebar> = ({ className }) => {
               height={24}
             />
           </Link>
-          <Avatar />
+          <Avatar
+            username={user?.username ?? ''}
+          />
         </section>
         <div>
           <h1 className="text-2xl font-medium">My Order</h1>
