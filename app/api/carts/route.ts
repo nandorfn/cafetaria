@@ -52,6 +52,8 @@ export const POST = async (req: Request) => {
     return NextResponse.json(newCartItem, { status: 201 });
   }
 }
+
+
 export const GET = async (req: Request) => {
   const token = req.headers.get('cookie')?.split('=')[1];
   const verifiedToken = token && (await verifyAuth(token));

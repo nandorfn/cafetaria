@@ -38,7 +38,6 @@ export const DELETE = async (req: Request, { params }: { params: { id: string } 
         id: Number(params.id)
       }
     })
-    console.log(cart)
     return NextResponse.json(cart, { status: 200 });
   }
 }

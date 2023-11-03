@@ -5,6 +5,7 @@ import axios from "axios";
 import Image from "next/image";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { Flex } from "../Container/Flex";
 
 type Props = {
   data: Food;
@@ -33,8 +34,12 @@ const FoodCard = ({ data }: Props) => {
       productId: data.productId
     })
     .then((res) => {
+      const newData = {
+      ...data,
+      id: res.data.id
+      }
       if (res.status === 200 || res.status === 201) {
-        dispatch(addCart(data))
+        dispatch(addCart(newData))
       } else {
         throw new Error(res.data.errors)
       }
@@ -48,23 +53,23 @@ const FoodCard = ({ data }: Props) => {
   
   return (
     <>
-      <div className="card card-compact w-fit min-h-full bg-white shadow-xl">
+      <div className="card w-fit min-h-full bg-white shadow-xl">
         <figure className="h-[60%]">
           <Image
             className='w-full'
             src={data.imgLink}
-            alt="Jacket"
+            alt="food image"
             width={278}
-            height={180}
+            height={280}
             priority
           />
         </figure>
-        <div className="card-body h-[40%]">
+        <Flex className="card-body p-4 h-[40%]">
           <div className="flex flex-col  w-full">
             <h2 className="w-fit card-title line-clamp-1">{data.name}</h2>
             <p className="w-fit md:text-end text-error font-bold text-sm md:text-base">{`Rp${price.toLocaleString('ID-id')}`}</p>
           </div>
-          <p className="text-neutral text-xs md:text-sm line-clamp-1">{data.description}</p>
+          <p className="text-neutral text-xs md:text-sm h-5">{data.description}</p>
           <div className="card-actions justify-end">
             <button
               onClick={() => addProductToCart(data.productId)}
@@ -73,7 +78,7 @@ const FoodCard = ({ data }: Props) => {
               className="btn btn-warning btn-sm text-white hover:opacity-70 disabled:opacity-70">Add to Cart
             </button>
           </div>
-        </div>
+        </Flex>
       </div>
     </>
   );
