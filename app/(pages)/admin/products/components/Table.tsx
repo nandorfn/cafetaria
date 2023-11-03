@@ -36,7 +36,6 @@ const Table = ({ products }: Props) => {
       />
       <div className="overflow-x-auto">
         <table className="table table-zebra">
-          {/* head */}
           <thead>
             <tr>
               <th>No</th>

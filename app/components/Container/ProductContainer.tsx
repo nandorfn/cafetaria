@@ -2,6 +2,7 @@ import { getAllFoods } from "@/app/utils/queryDb";
 import FoodCard from "../Card/FoodCard";
 import { Suspense } from "react";
 import CardSkeleton from "../Skeleton/CardSkeleton";
+import { ProductCart } from "@/app/utils/types";
 
 type Props = {
   params: {[key: string]: string | string[] | undefined}
@@ -12,7 +13,7 @@ const ProductContainer = async ({params}: Props) => {
   return (
     <>
         <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 mb-10 ">
-          {products.map((item) => (
+          {products.map((item: ProductCart) => (
             <li key={item.id}>
             <Suspense fallback={<CardSkeleton />}>
               <FoodCard

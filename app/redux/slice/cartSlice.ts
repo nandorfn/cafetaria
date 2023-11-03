@@ -1,8 +1,6 @@
 import { ProductCart, ProductCartState } from '@/app/utils/types';
 import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios';
-import { stat } from 'fs';
-import { useDispatch } from 'react-redux';
 
 export const fetchUserCart = createAsyncThunk(
   'carts/fetchUserCart',

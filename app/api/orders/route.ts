@@ -2,7 +2,6 @@ import prisma from "@/app/lib/prisma";
 import { verifyAuth } from "@/app/utils/auth";
 import { checkStock, createOrderItem, reduceProductStock } from "@/app/utils/queryDb";
 import { TOrderItem } from "@/app/utils/types";
-import { revalidatePath, revalidateTag } from "next/cache";
 import { NextResponse } from "next/server";
 import { v4 as uuidv4 } from 'uuid';
 

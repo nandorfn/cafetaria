@@ -4,6 +4,7 @@ let bcrypt = require('bcryptjs');
 import jwt from 'jsonwebtoken';
 import { cookies } from 'next/headers'
 import prisma from "@/app/lib/prisma";
+import { ZodIssue } from "zod";
 
 export const POST = async (req: Request) => {
   const JWT_SECRET = process.env.JWT_SECRET_KEY;
@@ -12,7 +13,7 @@ export const POST = async (req: Request) => {
 
   let zodErrors = {}
   if (!result.success) {
-    result.error.issues.forEach((issue) => {
+    result.error.issues.forEach((issue: ZodIssue) => {
       zodErrors = { ...zodErrors, [issue.path[0]]: issue.message }
     });
 

@@ -1,7 +1,4 @@
 import { HTMLAttributes } from "react";
-import OrderCard from "../Card/OrderCard";
-import shopBag from '@/app/assets/shopping-bag.png'
-import Image from "next/image";
 import Avatar from "../Avatar/Avatar";
 import Link from "next/link";
 import { checkUserLogin } from "@/app/utils/auth";

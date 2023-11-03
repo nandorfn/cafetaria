@@ -3,6 +3,7 @@
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { Transparent } from "../Container/Transparent";
 
 const LogoutBtn: React.FC = () => {
   const [loading, setLoading] = useState(false);
@@ -20,13 +21,21 @@ const LogoutBtn: React.FC = () => {
       )
   }
 
-    return (
-        <>
-           <button onClick={handleLogout} className="btn-wide  justify-center bg-white border-0 text-black hover:bg-white hover:border ">
-            Logout
-          </button>
-        </>
-    );
+  return (
+    <>  {
+      loading &&
+      <Transparent>
+        <span className="loading loading-spinner loading-lg"></span>
+      </Transparent>
+    }
+
+      <button
+        onClick={handleLogout}
+        className="btn-wide  justify-center bg-white border-0 text-black hover:bg-white hover:border ">
+        Logout
+      </button>
+    </>
+  );
 };
 
 export default LogoutBtn;

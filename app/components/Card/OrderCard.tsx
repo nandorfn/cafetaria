@@ -1,7 +1,6 @@
 'use client'
 import Image from "next/image";
 import xIcon from '@/app/assets/svg/xIcon.svg';
-import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { decrement, increment, deleteCart } from "@/app/redux/slice/cartSlice";
 import {  ProductCartState } from "@/app/utils/types";

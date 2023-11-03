@@ -2,8 +2,6 @@ import { getOrderProducts } from "@/app/utils/queryDb";
 
 const page = async () => {
   const orders = await getOrderProducts();
-  console.log(orders)
-
   return (
     <>
       <h1 className="text-2xl font-medium">
