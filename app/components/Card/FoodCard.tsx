@@ -1,5 +1,7 @@
-import { Food, TProductSchema } from "@/app/utils/types";
+'use client'
+import { Food } from "@/app/utils/types";
 import Image from "next/image";
+import { useState } from "react";
 
 type Props = {
   data: Food;
@@ -7,9 +9,23 @@ type Props = {
 
 const FoodCard = ({data}: Props) => {
   const { price } = data;
+  const [product, setProduct] = useState([data]);
+  const [cart, setCart] = useState<Food[]>([]);
+  
+  const selectedCart = (id: string) => {
+    const newCart = [...product.filter((item) => item.id === Number(id))]
+    
+    }
+  
+  const addProductToCart = (e: React.SyntheticEvent) => {
+    const { id } = e.target as HTMLButtonElement;
+    selectedCart(id);
+  }
+  
+  console
   return (
     <>
-      <div className="card card-compact w-fit bg-white shadow-xl">
+      <div className="card card-compact w-fit h-full bg-white shadow-xl">
         <figure>
           <Image
             className='w-full'
@@ -27,7 +43,10 @@ const FoodCard = ({data}: Props) => {
           </div>
           <p>{data.description}</p>
           <div className="card-actions justify-end">
-            <button className="btn btn-warning btn-sm text-white hover:opacity-70">Add to Cart</button>
+            <button 
+              onClick={addProductToCart}
+              id={data.id.toString()} 
+              className="btn btn-warning btn-sm text-white hover:opacity-70">Add to Cart</button>
           </div>
         </div>
       </div>

@@ -3,12 +3,10 @@ import FoodCard from "../Card/FoodCard";
 
 const ProductContainer = async () => {
   const products = await getAllFoods({})
-  console.log(products);
 
   return (
     <>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 mb-10 ">
-        <ul>
+        <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 mb-10 ">
           {products.map((item) => (
             <li key={item.id}>
               <FoodCard
@@ -18,7 +16,6 @@ const ProductContainer = async () => {
           ))
           }
         </ul>
-      </div>
     </>
   );
 };

@@ -64,6 +64,7 @@ export const tokenSchema = z.object({
 export type JwtSchema = z.infer<typeof tokenSchema>;
 
 export type Food = {
+  id: number;
   name: string;
   category: string;
   imgLink: string;

@@ -22,14 +22,14 @@ const Navbar: React.FC<Navbar> = async ({
     <>
       <div className={cn('flex flex-row w-full', className)} {...props}>
         <div className='flex flex-col w-full lg:w-[80%] bg-zinc-100'>
-          <header className='py-4 mx-8 border-b'>
+          <header className='pb-4 pt-6 mx-8 border-b'>
             <nav className='flex flex-row justify-between mx-auto'>
               <Link href={'/'}>
                 <h1 className='font-medium text-2xl text-warning'>Cafetaria</h1>
               </Link>
               { user && user.role === 'admin' &&
-              <Link href={'/admin'}>
-                Admin
+              <Link className='items-center font-medium text-lg bg-warning px-4 py-1 rounded-full text-white hover:opacity-70' href={'/admin'}>
+                Admin Dashboard
               </Link>
               
               }
@@ -45,7 +45,6 @@ const Navbar: React.FC<Navbar> = async ({
           {children}
         </div>
         <Sidebar
-          className='w-[20%]'
         />
       </div>
     </>
