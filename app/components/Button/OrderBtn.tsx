@@ -1,30 +1,36 @@
 'use client'
 
 import axios from "axios";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Transparent } from "../Container/Transparent";
 import { Flex } from "../Container/Flex";
 import { useAppSelector } from "@/app/utils/hooks";
+import { useDispatch } from "react-redux";
+import { removeAllCarts } from "@/app/redux/slice/cartSlice";
 
 const OrderBtn: React.FC = () => {
   const carts = useAppSelector((state) => state.cart.carts);
   const [loading, setLoading] = useState(false);
   const [modal, setModal] = useState(false);
-  const router = useRouter()
+  const dispatch = useDispatch();
   const handleOrder = () => {
     setLoading(true);
     axios.post('/api/orders').
       then((res) => {
         if (res.status === 201) {
           setModal(true);
+          dispatch(removeAllCarts());
+        } else {
+          throw new Error('Order Failed!')
         }
+      })
+      .catch((err) => {
+        console.log(err)
       })
       .finally(() => {
         setTimeout(() => {
           setLoading(false);
-          window.location.reload();
-        }, 2000)
+        }, 1500)
       })
   }
 

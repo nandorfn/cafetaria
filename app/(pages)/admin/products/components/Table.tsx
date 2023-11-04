@@ -43,6 +43,7 @@ const Table = ({ products }: Props) => {
               <th>Category</th>
               <th>Sold</th>
               <th>Price</th>
+              <th>Stock</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -54,6 +55,7 @@ const Table = ({ products }: Props) => {
                 <td>{item.category}</td>
                 <td>{item.totalSold}</td>
                 <td>{`Rp${item.price.toLocaleString('ID-id')}`}</td>
+                <td>{item.stock}</td>
                 <td className="flex gap-3">
                   <button className="btn btn-sm btn-warning hover:opacity-70 " type="button">Edit</button>
                   <button 

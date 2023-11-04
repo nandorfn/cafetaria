@@ -47,7 +47,7 @@ export const POST = async (req: Request) => {
 
   const orderItem = await createOrderItem(productCart, order.orderId);
   const reduceStock = await reduceProductStock(verifiedToken.userId);
-  
+
   if (!orderItem && !reduceStock) {
     const orderItems = await prisma.orderItem.findMany({
       where: {
@@ -83,7 +83,27 @@ export const POST = async (req: Request) => {
 
     ]);
     return NextResponse.json({ errors: 'Order Failed' }, { status: 400 })
-  } else {
-    return NextResponse.json(order, { status: 201 });
   }
+
+  for (const item of orderItem) {
+    const product = await prisma.product.findFirst({
+      where: {
+        productId: item.productId,
+      },
+    })
+    
+    if (!product) {
+      return NextResponse.json({ errors: 'Internal error' }, { status: 400 })
+    }
+
+    await prisma.product.update({
+      where: {
+        productId: product.productId,
+      },
+      data: {
+        totalSold: product?.totalSold + item.quantity
+      }
+    })
+  }
+  return NextResponse.json(order, { status: 201 });
 }
