@@ -1,7 +1,4 @@
-import { Flex } from "@/app/components/Container/Flex";
-import FormProdcut from "./components/FormProdcut";
 import { getAllProducts } from "@/app/utils/queryDb";
-import { ProductCart } from "@/app/utils/types";
 import Table from "./components/Table";
 
 const page = async () => {

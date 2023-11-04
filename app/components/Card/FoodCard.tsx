@@ -3,9 +3,11 @@ import { addCart } from "@/app/redux/slice/cartSlice";
 import { Food } from "@/app/utils/types";
 import axios from "axios";
 import Image from "next/image";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Flex } from "../Container/Flex";
+import 'react-loading-skeleton/dist/skeleton.css'
+
 
 type Props = {
   data: Food;
@@ -53,16 +55,23 @@ const FoodCard = ({ data }: Props) => {
   
   return (
     <>
-      <div className="card w-fit min-h-full bg-white shadow-xl">
+      <div className="card w-full min-h-full bg-white shadow-xl">
         <figure className="h-[60%]">
-          <Image
-            className='w-full'
-            src={data.imgLink}
-            alt="food image"
-            width={278}
-            height={280}
-            priority
-          />
+          <Suspense 
+            fallback={
+              <Flex align={'center'} className="h-44 bg-base-200">
+                <span className="loading loading-spinner loading-lg"></span>
+              </Flex>
+            }>
+            <Image
+              className='w-full'
+              src={data.imgLink}
+              alt="food image"
+              width={278}
+              height={280}
+              priority
+            />
+          </Suspense>
         </figure>
         <Flex className="card-body p-4 h-[40%]">
           <div className="flex flex-col  w-full">

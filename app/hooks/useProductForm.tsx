@@ -13,24 +13,23 @@ const useProductForm = (setState: Dispatch<SetStateAction<ProductCart[]>>) => {
     formState: { errors, isSubmitted },
     reset,
     setError,
-    watch,
     control,
   } = useForm<TProductSchema>({
-    resolver: zodResolver(productSchema)
+    resolver: zodResolver(productSchema), 
   });
 
   const onSubmit = async (data: TProductSchema) => {
     setLoading(true);
     axios.post(`/api/products`, data)
       .then((res) => {
-          if (res.status === 201) {
-            setState((prevState) => [
-              ...prevState,
-              res.data
-            ])
-          } else {
-            throw new Error(res.data.error)
-          }
+        if (res.status === 201) {
+          setState((prevState) => [
+            ...prevState,
+            res.data
+          ])
+        } else {
+          throw new Error(res.data.error)
+        }
       }
       )
       .catch(err => {
@@ -75,18 +74,17 @@ const useProductForm = (setState: Dispatch<SetStateAction<ProductCart[]>>) => {
       })
     reset();
   };
-  
+
   return {
     register,
     handleSubmit,
     errors,
     isSubmitted,
     onSubmit,
-    watch,
     control,
     loading,
     modal,
-    setModal
+    setModal,
   }
 }
 
