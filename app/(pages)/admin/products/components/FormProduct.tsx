@@ -10,12 +10,16 @@ import { Dispatch, SetStateAction } from "react";
 import { Controller } from 'react-hook-form';
 
 type Props = {
+  setFilteredProduct: Dispatch<SetStateAction<ProductCart[]>>;
   handleInput: (e: React.SyntheticEvent) => void;
   search: string;
-  setFilteredProduct: Dispatch<SetStateAction<ProductCart[]>>
 }
 
-const FormProdcut = ({ handleInput, search, setFilteredProduct }: Props) => {
+const FormProduct = ({ 
+  handleInput, 
+  search, 
+  setFilteredProduct, 
+  }: Props) => {
   const {
     register,
     handleSubmit,
@@ -24,7 +28,7 @@ const FormProdcut = ({ handleInput, search, setFilteredProduct }: Props) => {
     control,
     loading,
     modal,
-    setModal
+    setModal,
   } = useProductForm(setFilteredProduct);
 
   return (
@@ -69,7 +73,6 @@ const FormProdcut = ({ handleInput, search, setFilteredProduct }: Props) => {
                 <Controller
                   name="category"
                   control={control}
-                  defaultValue=""
                   render={({ field }) => (
                     <Select
                       {...field}
@@ -145,7 +148,7 @@ const FormProdcut = ({ handleInput, search, setFilteredProduct }: Props) => {
                 >
                   {loading
                     ? <span className="loading loading-spinner"></span>
-                    : 'ORDER'
+                    : 'SUBMIT'
 
                   }
                 </button>
@@ -158,4 +161,4 @@ const FormProdcut = ({ handleInput, search, setFilteredProduct }: Props) => {
   );
 };
 
-export default FormProdcut;
+export default FormProduct;
